@@ -712,13 +712,14 @@ func (a *Agent) checkKeepalive() {
 		return
 	}
 
-	if (a.keepaliveInterval != 0) &&
-		((time.Since(selectedPair.Local.LastSent()) > a.keepaliveInterval) ||
-			(time.Since(selectedPair.Remote.LastReceived()) > a.keepaliveInterval)) {
-		// we use binding request instead of indication to support refresh consent schemas
-		// see https://tools.ietf.org/html/rfc7675
-		a.selector.PingCandidate(selectedPair.Local, selectedPair.Remote)
-	}
+	// if (a.keepaliveInterval != 0) &&
+	// 	((time.Since(selectedPair.Local.LastSent()) > a.keepaliveInterval) ||
+	// 		(time.Since(selectedPair.Remote.LastReceived()) > a.keepaliveInterval)) {
+	// 	// we use binding request instead of indication to support refresh consent schemas
+	// 	// see https://tools.ietf.org/html/rfc7675
+	// 	a.selector.PingCandidate(selectedPair.Local, selectedPair.Remote)
+	// }
+	a.selector.PingCandidate(selectedPair.Local, selectedPair.Remote)
 }
 
 // AddRemoteCandidate adds a new remote candidate
