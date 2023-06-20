@@ -1,4 +1,4 @@
-module github.com/tjgao/ice/v2
+module github.com/millicast/ice/v2
 
 go 1.13
 
